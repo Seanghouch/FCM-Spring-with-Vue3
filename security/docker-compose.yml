@@ -1,0 +1,19 @@
+version: '1.0'
+
+services:
+
+  app:
+    image: spring-boot-docker
+    ports:
+      - 8181:8080
+    restart: always
+
+  db:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - ./volume:/var/lib/postgres
+    environment:
+      POSTGRES_PASSWORD: 12345
